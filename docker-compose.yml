@@ -1,0 +1,19 @@
+version: "3.4"
+services:
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:8080"
+        volumes:
+            - /app/node_modules
+            - ./frontend:/app
+    frontend_tests:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules # DO NOT TOUCH THIS DIRECTORY IN CONTAINER
+            - ./frontend:/app
+        command: ["npm", "run", "test"]

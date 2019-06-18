@@ -1,0 +1,15 @@
+FROM node:alpine
+WORKDIR /app
+COPY package.json .
+
+RUN npm install
+
+# We do not need to copy EVERYTHING as we are mounting this directory inside container
+COPY . .
+
+CMD ["npm", "run", "serve"]
+
+# Commands to run manually!
+# docker build -t vue-front -f Dockerfile.dev .
+# docker run -v /app/node_modules -v "$(pwd)"/app -p 80:8080 vue-front
+# First volume tag says DO NOT MAP this volume (as there is no colon), second one says, "Please map pwd to /app inside container"
