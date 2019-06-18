@@ -1,4 +1,6 @@
-# frontend
+# frontend 
+
+[![Build Status](https://travis-ci.org/metamemelord/docker-vue.svg?branch=master)](https://travis-ci.org/metamemelord/docker-vue)
 
 ## Project setup
 ```
