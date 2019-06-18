@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run metamemelord/docker-vue npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-vue-tutorial"
+  env: "DockerVueTutorial-env"
+  bucket_name: "elasticbeanstalk-us-east-1-262400643964"
+  bucket_path: "docker-vue-tutorial"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
