@@ -15,13 +15,14 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
-      # - restore_cache:
-      #     keys:
-      #       - v1-dependencies-{{ checksum "package.json" }}
-      #       - v1-dependencies-s
-      - run: 'sudo npm install'
-      # - save_cache:
-      #     paths:
-      #       - node_modules
-      #     key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 'sudo npm install strip --save'
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-s
+      - run: 'sudo npm install --save'
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run test
