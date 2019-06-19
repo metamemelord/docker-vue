@@ -14,12 +14,12 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          command: 'npm install -g npm@latest'
       # - restore_cache:
       #     keys:
       #       - v1-dependencies-{{ checksum "package.json" }}
       #       - v1-dependencies-s
-      - run: 'sudo npm install --save'
+      - run: 'npm install --save'
       # - save_cache:
       #     paths:
       #       - node_modules
