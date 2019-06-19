@@ -1,6 +1,7 @@
 # frontend 
 
 [![Build Status](https://travis-ci.org/metamemelord/docker-vue.svg?branch=master)](https://travis-ci.org/metamemelord/docker-vue)
+[![CircleCI](https://circleci.com/gh/metamemelord/docker-vue.svg?style=svg)](https://circleci.com/gh/metamemelord/docker-vue)
 
 ## Project setup
 ```
