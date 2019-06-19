@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10
+      - image: node:latest
 
     working_directory: ~/repo
 
@@ -15,14 +15,13 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
-      - run: 'sudo npm install strip --save'
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-s
+      # - restore_cache:
+      #     keys:
+      #       - v1-dependencies-{{ checksum "package.json" }}
+      #       - v1-dependencies-s
       - run: 'sudo npm install --save'
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run test
+      # - save_cache:
+      #     paths:
+      #       - node_modules
+      #     key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 'npm run test'
